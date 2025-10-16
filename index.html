@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield | Кибербезопасность в цифровую эпоху</title>
+    <title>CyberShield | Защита от киберугроз</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
         :root {
-            --cyber-green: #00ff41;
-            --dark-bg: #0a0a0a;
-            --card-bg: #111111;
+            --cyber-green: #00ff88;
+            --cyber-blue: #00ccff;
+            --dark-bg: #0a0a0f;
+            --card-bg: #1a1a2e;
+            --accent-bg: #16213e;
             --text-light: #ffffff;
-            --text-gray: #888888;
+            --text-gray: #b8b8b8;
+            --gradient: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
         }
 
         body {
-            background-color: var(--dark-bg);
+            background: var(--dark-bg);
             color: var(--text-light);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
+        /* Header */
         header {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--cyber-green);
+            border-bottom: 2px solid transparent;
+            background: linear-gradient(135deg, rgba(10,10,15,0.95) 0%, rgba(22,33,62,0.95) 100%);
         }
 
         .nav-container {
@@ -46,180 +53,357 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: var(--cyber-green);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2rem;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         nav a:hover {
             color: var(--cyber-green);
         }
 
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, #0a0a0a 0%, #001a00 100%);
+            background: linear-gradient(135deg, #0a0a0f 0%, #16213e 50%, #0a0a0f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 204, 255, 0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
             padding: 0 2rem;
         }
 
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #00ff41, #00cc33);
+            background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+            margin-bottom: 3rem;
+            font-weight: 300;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            background: var(--cyber-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--gradient);
             color: var(--dark-bg);
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
         }
 
+        /* Sections */
         section {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            color: var(--cyber-green);
+            font-size: 3rem;
+            margin-bottom: 5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
         }
 
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Content Blocks */
         .content-block {
             background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 10px;
-            border: 1px solid #333;
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .content-block:hover {
+            transform: translateY(-5px);
         }
 
         .content-block h3 {
             color: var(--cyber-green);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .content-block h3 i {
+            font-size: 2.5rem;
         }
 
         .content-block p {
             margin-bottom: 1.5rem;
             color: var(--text-gray);
+            font-size: 1.1rem;
         }
 
         .content-block ul {
-            margin: 1.5rem 0;
+            margin: 2rem 0;
             padding-left: 2rem;
         }
 
         .content-block li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: var(--text-gray);
+            position: relative;
+            padding-left: 1.5rem;
         }
 
+        .content-block li::before {
+            content: '▸';
+            color: var(--cyber-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Grids */
         .threats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .threat-card {
             background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 10px;
-            border: 1px solid #333;
-            transition: transform 0.3s, border-color 0.3s;
+            padding: 3rem 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .threat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .threat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             border-color: var(--cyber-green);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .threat-card:hover::before {
+            transform: scaleX(1);
         }
 
         .threat-card h4 {
             color: var(--cyber-green);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .threat-card h4 i {
+            font-size: 2rem;
         }
 
         .threat-card p {
             color: var(--text-gray);
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         .methods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .method-card {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid #333;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyber-blue);
+        }
+
+        .method-card i {
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
         }
 
         .method-card h4 {
-            color: var(--cyber-green);
-            font-size: 1.3rem;
+            color: var(--cyber-blue);
+            font-size: 1.4rem;
             margin-bottom: 1rem;
         }
 
+        /* Contact */
         .contact-info {
             text-align: center;
             margin-top: 3rem;
         }
 
-        .contact-info a {
-            color: var(--cyber-green);
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            color: var(--text-light);
             text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .contact-link:hover {
+            background: var(--gradient);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
         }
 
+        .contact-link i {
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
         footer {
-            background: #000;
+            background: var(--accent-bg);
             padding: 4rem 2rem;
             text-align: center;
-            border-top: 1px solid var(--cyber-green);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-content {
@@ -227,54 +411,98 @@
             margin: 0 auto;
         }
 
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             nav ul {
-                gap: 1rem;
+                gap: 1.5rem;
                 font-size: 0.9rem;
             }
             
             .content-block {
-                padding: 2rem;
+                padding: 2.5rem 2rem;
             }
+            
+            .threats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <div class="logo">CyberShield</div>
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                CyberShield
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#about">Что такое</a></li>
-                    <li><a href="#threats">Угрозы</a></li>
-                    <li><a href="#methods">Методы защиты</a></li>
-                    <li><a href="#trends">Тенденции</a></li>
-                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> Что такое</a></li>
+                    <li><a href="#threats"><i class="fas fa-bug"></i> Угрозы</a></li>
+                    <li><a href="#methods"><i class="fas fa-lock"></i> Защита</a></li>
+                    <li><a href="#trends"><i class="fas fa-chart-line"></i> Тенденции</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Контакты</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content fade-in">
             <h1>Кибербезопасность в цифровую эпоху</h1>
             <p>Защитите свои данные от современных киберугроз с помощью наших рекомендаций и лучших практик</p>
-            <a href="#about" class="cta-button">Узнать больше</a>
+            <a href="#about" class="cta-button">
+                <i class="fas fa-arrow-down"></i>
+                Узнать больше
+            </a>
         </div>
     </section>
 
     <section id="about">
-        <h2 class="section-title">Что такое кибербезопасность?</h2>
-        <div class="content-block">
-            <h3>Кибербезопасность</h3>
+        <h2 class="section-title fade-in">Что такое кибербезопасность?</h2>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-shield-alt"></i> Кибербезопасность</h3>
             <p>Кибербезопасность — это область, включающая различные аспекты защиты информации, систем и сетей от несанкционированного доступа, утечек данных, вредоносных программ и других киберугроз.</p>
             <p>Она сосредоточена на защите данных, систем и сетей, связанных с интернетом и цифровыми технологиями, обеспечивая конфиденциальность, целостность и доступность информации.</p>
             
-            <h4>Основные направления:</h4>
+            <h4><i class="fas fa-bullseye"></i> Основные направления:</h4>
             <ul>
                 <li>Защита данных (шифрование, резервное копирование)</li>
                 <li>Сетевая безопасность (защита от DDoS, взломов)</li>
@@ -285,58 +513,61 @@
     </section>
 
     <section id="threats">
-        <h2 class="section-title">Основные угрозы кибербезопасности</h2>
+        <h2 class="section-title fade-in">Основные угрозы кибербезопасности</h2>
         <div class="threats-grid">
-            <div class="threat-card">
-                <h4>Фишинг и социальная инженерия</h4>
+            <div class="threat-card fade-in">
+                <h4><i class="fas fa-fish"></i> Фишинг и социальная инженерия</h4>
                 <p>Поддельные сайты и deepfake-видео, имитирующие голоса и лица руководителей</p>
             </div>
-            <div class="threat-card">
-                <h4>DDoS-атаки</h4>
+            <div class="threat-card fade-in">
+                <h4><i class="fas fa-network-wired"></i> DDoS-атаки</h4>
                 <p>Нарушения доступности сервисов из-за роста числа IoT-устройств и ботнетов</p>
             </div>
-            <div class="threat-card">
-                <h4>Утечки учетных данных</h4>
+            <div class="threat-card fade-in">
+                <h4><i class="fas fa-key"></i> Утечки учетных данных</h4>
                 <p>Украденные логины и пароли как главный "ключ" ко взлому</p>
             </div>
-            <div class="threat-card">
-                <h4>Атаки через цепочку поставок</h4>
+            <div class="threat-card fade-in">
+                <h4><i class="fas fa-link"></i> Атаки через цепочку поставок</h4>
                 <p>Компрометация менее защищённого подрядчика для проникновения в крупную цель</p>
             </div>
-            <div class="threat-card">
-                <h4>Атаки на облачную инфраструктуру</h4>
+            <div class="threat-card fade-in">
+                <h4><i class="fas fa-cloud"></i> Атаки на облачную инфраструктуру</h4>
                 <p>Неправильные конфигурации хранилищ и утечки облачных ключей</p>
             </div>
-            <div class="threat-card">
-                <h4>Атаки на IoT-системы</h4>
+            <div class="threat-card fade-in">
+                <h4><i class="fas fa-microchip"></i> Атаки на IoT-системы</h4>
                 <p>Умные устройства как точка входа в корпоративную сеть</p>
             </div>
         </div>
     </section>
 
     <section id="methods">
-        <h2 class="section-title">Методы защиты и обеспечения безопасности</h2>
+        <h2 class="section-title fade-in">Методы защиты и обеспечения безопасности</h2>
         
-        <div class="content-block">
-            <h3>Технические методы</h3>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-tools"></i> Технические методы</h3>
             <div class="methods-grid">
                 <div class="method-card">
+                    <i class="fas fa-shield-virus"></i>
                     <h4>Антивирусное ПО и фаерволы</h4>
                     <p>Защита от вирусов, троянов, червей и несанкционированного доступа</p>
                 </div>
                 <div class="method-card">
+                    <i class="fas fa-radar"></i>
                     <h4>Системы обнаружения вторжений</h4>
                     <p>Мониторинг сетевого трафика и блокировка подозрительной активности</p>
                 </div>
                 <div class="method-card">
+                    <i class="fas fa-lock"></i>
                     <h4>Криптография</h4>
                     <p>Шифрование данных для защиты конфиденциальности информации</p>
                 </div>
             </div>
         </div>
 
-        <div class="content-block">
-            <h3>Практические рекомендации</h3>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-user-check"></i> Практические рекомендации</h3>
             <ul>
                 <li><strong>Используйте разные пароли:</strong> Создавайте уникальные пароли для каждого сайта и регулярно их меняйте</li>
                 <li><strong>Осторожность с ссылками:</strong> Не переходите по подозрительным ссылкам и не открывайте вложения от неизвестных отправителей</li>
@@ -344,8 +575,8 @@
             </ul>
         </div>
 
-        <div class="content-block">
-            <h3>Важность резервного копирования</h3>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-save"></i> Важность резервного копирования</h3>
             <p>Регулярное создание резервных копий данных — это последняя линия защиты от потери информации в случае кибератаки, сбоя оборудования или человеческой ошибки.</p>
             <ul>
                 <li>Используйте правило 3-2-1: 3 копии, на 2 разных носителя, 1 вне офиса</li>
@@ -356,50 +587,63 @@
     </section>
 
     <section id="trends">
-        <h2 class="section-title">Актуальные тенденции и будущее кибербезопасности</h2>
+        <h2 class="section-title fade-in">Актуальные тенденции и будущее</h2>
         
-        <div class="content-block">
-            <h3>Роль искусственного интеллекта</h3>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-robot"></i> Роль искусственного интеллекта</h3>
             <p>ИИ способен обрабатывать большие объёмы данных, выявлять закономерности и аномалии, адаптироваться к возникающим угрозам в режиме реального времени.</p>
             <p>В будущем ожидаются автономные системы кибербезопасности, которые смогут обнаруживать, реагировать и устранять угрозы без вмешательства человека.</p>
         </div>
 
-        <div class="content-block">
-            <h3>Рост мультифакторных атак</h3>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-layer-group"></i> Рост мультифакторных атак</h3>
             <p>Злоумышленники смогут с помощью ИИ атаковать компанию сразу в нескольких направлениях, пытаясь проникнуть в инфраструктуру, рассылать фишинговые письма и воздействовать на сотрудников.</p>
             <p>Особенно важным становится комплексный подход к безопасности, где технологические решения дополняются грамотной организационной политикой и обучением персонала.</p>
         </div>
 
-        <div class="content-block">
-            <h3>Кибербезопасность — ключевой аспект цифрового мира</h3>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-globe"></i> Кибербезопасность — ключевой аспект</h3>
             <p>Стремительный рост киберугроз и увеличение объёма цифровых данных требуют усиленной защиты компьютерных систем от кибератак и вредоносных программ.</p>
             <p><strong>Главное правило:</strong> Безопасность — это процесс, а не конечное состояние. Необходимо постоянно обновлять знания, следить за новыми угрозами и адаптировать защитные меры.</p>
-            <a href="#contact" class="cta-button" style="margin-top: 2rem;">Начать обучение</a>
+            <a href="#contact" class="cta-button" style="margin-top: 2rem;">
+                <i class="fas fa-graduation-cap"></i>
+                Начать обучение
+            </a>
         </div>
     </section>
 
     <section id="contact">
-        <h2 class="section-title">Контакты</h2>
-        <div class="content-block">
-            <h3>CyberShield</h3>
+        <h2 class="section-title fade-in">Контакты</h2>
+        <div class="content-block fade-in">
+            <h3><i class="fas fa-envelope"></i> Свяжитесь с нами</h3>
             <p>Ресурс о современных угрозах и методах защиты в цифровом мире.</p>
             
-            <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:nikitkarylit228@gmail.com">nikitkarylit228@gmail.com</a></p>
-                <p><strong>VK:</strong> <a href="https://vk.com/leonid_sever" target="_blank">vk.com/leonid_sever</a></p>
+            <div class="contact-links">
+                <a href="mailto:nikitkarylit228@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    nikitkarylit228@gmail.com
+                </a>
+                <a href="https://vk.com/leonid_sever" target="_blank" class="contact-link">
+                    <i class="fab fa-vk"></i>
+                    vk.com/leonid_sever
+                </a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">CyberShield</div>
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i>
+                CyberShield
+            </div>
             <p>Ресурс о современных угрозах и методах защиты в цифровом мире.</p>
             <p style="margin-top: 2rem; color: var(--text-gray);">© 2024 CyberShield. Все права защищены.</p>
         </div>
     </footer>
 
     <script>
+        // Smooth scroll
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -408,13 +652,37 @@
             });
         });
 
+        // Header background on scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.98)';
+                header.style.background = 'rgba(10, 10, 15, 0.98)';
             } else {
-                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
             }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
