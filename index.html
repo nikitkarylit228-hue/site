@@ -3,50 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield | Защита от киберугроз</title>
+    <title>CyberShield | Кибербезопасность</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         :root {
             --cyber-green: #00ff88;
             --cyber-blue: #00ccff;
-            --cyber-purple: #8a2be2;
             --dark-bg: #0a0a0f;
-            --card-bg: rgba(26, 26, 46, 0.9);
-            --accent-bg: #16213e;
+            --card-bg: #1a1a2e;
             --text-light: #ffffff;
             --text-gray: #b8b8b8;
-            --gradient: linear-gradient(135deg, #00ff88 0%, #00ccff 50%, #8a2be2 100%);
         }
 
-        body { 
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(0, 204, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 40%),
-                var(--dark-bg);
+        body {
+            background: var(--dark-bg);
             color: var(--text-light);
-            overflow-x: hidden;
-            line-height: 1.7;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* Header */
         header {
             background: rgba(10, 10, 15, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+            border-bottom: 2px solid var(--cyber-green);
         }
 
         .nav-container {
@@ -58,539 +47,134 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: var(--cyber-green);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            background: rgba(0, 255, 136, 0.15);
             color: var(--cyber-green);
         }
 
-        /* Hero Section */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: 0 2rem;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(135deg, 
-                    rgba(0, 255, 136, 0.4) 0%, 
-                    rgba(0, 204, 255, 0.4) 50%, 
-                    rgba(138, 43, 226, 0.4) 100%),
-                var(--dark-bg);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
-            z-index: 1;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
+            background: linear-gradient(135deg, #0a0a0f 0%, #001a00 100%);
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.1;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--cyber-green);
         }
 
         .hero-content p {
-            font-size: 1.4rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
         }
 
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 2.5rem;
-            background: var(--gradient);
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--cyber-green);
             color: var(--dark-bg);
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
+            transition: transform 0.3s;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.6);
+            transform: translateY(-2px);
         }
 
-        /* Sections */
         section {
-            padding: 8rem 2rem;
+            padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 3.2rem;
-            margin-bottom: 5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        /* Content Blocks */
-        .content-block {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            padding: 4rem;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.15);
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-        }
-
-        .content-block:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-
-        .content-block::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient);
-            opacity: 0.05;
-            z-index: -1;
-        }
-
-        .content-block h3 {
-            color: var(--cyber-green);
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .content-block h3 i {
             font-size: 2.5rem;
-        }
-
-        .content-block p {
-            margin-bottom: 1.5rem;
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .content-block ul {
-            margin: 2rem 0;
-            padding-left: 2rem;
-        }
-
-        .content-block li {
-            margin-bottom: 1rem;
-            color: var(--text-gray);
-            position: relative;
-            padding-left: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .content-block li::before {
-            content: '▸';
+            margin-bottom: 3rem;
             color: var(--cyber-green);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
         }
 
-        /* Visual Elements */
-        .cyber-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(90deg, transparent 24px, rgba(0,255,136,0.03) 25px, rgba(0,255,136,0.03) 26px, transparent 27px, transparent 49px, rgba(0,204,255,0.03) 50px, rgba(0,204,255,0.03) 51px, transparent 52px),
-                linear-gradient(0deg, transparent 24px, rgba(138,43,226,0.03) 25px, rgba(138,43,226,0.03) 26px, transparent 27px, transparent 49px, rgba(0,255,136,0.03) 50px, rgba(0,255,136,0.03) 51px, transparent 52px);
-            background-size: 75px 75px;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .shape {
-            position: absolute;
-            background: var(--gradient);
-            opacity: 0.1;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape-1 {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            left: 5%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: -2s;
-        }
-
-        .shape-3 {
-            width: 100px;
-            height: 100px;
-            bottom: 20%;
-            left: 15%;
-            animation-delay: -4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        /* Cards Grid */
         .threats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .threat-card {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(42, 42, 62, 0.9) 100%);
-            padding: 3rem 2.5rem;
-            border-radius: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .threat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .threat-card:hover::before {
-            transform: scaleX(1);
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+            text-align: center;
         }
 
         .threat-card:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-5px);
             border-color: var(--cyber-green);
-            box-shadow: 0 25px 50px rgba(0,255,136,0.2);
         }
 
-        .threat-card h4 {
+        .threat-card h3 {
             color: var(--cyber-green);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .threat-card h4 i {
-            font-size: 2rem;
-        }
-
-        .threat-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* Methods Grid */
-        .methods-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .method-card {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(42, 42, 62, 0.9) 100%);
-            padding: 3rem 2rem;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .method-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .method-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .method-card:hover {
-            transform: translateY(-8px) rotate(-1deg);
-            border-color: var(--cyber-blue);
-            box-shadow: 0 20px 40px rgba(0,204,255,0.2);
-        }
-
-        .method-card i {
-            font-size: 3.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .method-card h4 {
-            color: var(--cyber-blue);
-            font-size: 1.4rem;
             margin-bottom: 1rem;
         }
 
-        .method-card p {
-            color: var(--text-gray);
-            line-height: 1.6;
+        .icon {
+            font-size: 3rem;
+            color: var(--cyber-green);
+            margin-bottom: 1rem;
         }
 
-        /* Contact Section */
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem 2.5rem;
-            background: var(--gradient);
-            color: var(--dark-bg);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,255,136,0.3);
-        }
-
-        .contact-link:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,255,136,0.5);
-        }
-
-        /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--accent-bg) 0%, #0a0a1f 100%);
-            padding: 4rem 2rem;
+            background: #000;
+            padding: 3rem 2rem;
             text-align: center;
-            border-top: 1px solid rgba(0,255,136,0.3);
-            position: relative;
-            overflow: hidden;
+            border-top: 1px solid var(--cyber-green);
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient);
-        }
-
-        .footer-logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.8rem;
+                font-size: 2rem;
             }
             
             nav ul {
                 gap: 1rem;
-                font-size: 0.9rem;
             }
-            
-            .content-block {
-                padding: 2.5rem 2rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .threats-grid,
-            .methods-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="cyber-grid"></div>
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
-
     <header>
         <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-shield-alt"></i>
-                CyberShield
-            </div>
+            <div class="logo">CyberShield</div>
             <nav>
                 <ul>
-                    <li><a href="#about">Что такое</a></li>
+                    <li><a href="#about">О проекте</a></li>
                     <li><a href="#threats">Угрозы</a></li>
-                    <li><a href="#methods">Защита</a></li>
-                    <li><a href="#trends">Тенденции</a></li>
+                    <li><a href="#protection">Защита</a></li>
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
@@ -598,216 +182,94 @@
     </header>
 
     <section class="hero">
-        <div class="hero-bg"></div>
-      <div class="hero-content">
-    <i class="fas fa-shield-alt" style="font-size: 4rem; color: #00ff88; margin-bottom: 1rem;"></i>
-    <h1>Кибербезопасность в цифровую эпоху</h1>
-    <p>Защитите свои данные от современных киберугроз</p>
-    <a href="#about" class="cta-button">Узнать больше</a>
-</div>
+        <div class="hero-content">
+            <i class="fas fa-shield-alt icon"></i>
+            <h1>Кибербезопасность в цифровую эпоху</h1>
+            <p>Защитите свои данные от современных киберугроз</p>
+            <a href="#about" class="cta-button">Узнать больше</a>
+        </div>
     </section>
 
     <section id="about">
-        <h2 class="section-title fade-in">Что такое кибербезопасность?</h2>
-        <div class="content-block fade-in">
-            <h3><i class="fas fa-shield-alt"></i> Кибербезопасность</h3>
-            <p>Кибербезопасность — это область, включающая различные аспекты защиты информации, систем и сетей от несанкционированного доступа, утечек данных, вредоносных программ и других киберугроз.</p>
-            <p>Она сосредоточена на защите данных, систем и сетей, связанных с интернетом и цифровыми технологиями, обеспечивая конфиденциальность, целостность и доступность информации.</p>
-            
-            <h4><i class="fas fa-bullseye"></i> Основные направления:</h4>
-            <ul>
-                <li>Защита данных (шифрование, резервное копирование)</li>
-                <li>Сетевая безопасность (защита от DDoS, взломов)</li>
-                <li>Безопасность приложений</li>
-                <li>Управление идентификацией и доступом</li>
-            </ul>
+        <h2 class="section-title">О проекте</h2>
+        <div class="threat-card">
+            <i class="fas fa-shield-alt icon"></i>
+            <h3>Что такое кибербезопасность?</h3>
+            <p>Защита информации и систем от кибератак и несанкционированного доступа в цифровом пространстве.</p>
         </div>
     </section>
 
     <section id="threats">
-        <h2 class="section-title fade-in">Основные угрозы кибербезопасности</h2>
+        <h2 class="section-title">Основные угрозы</h2>
         <div class="threats-grid">
-            <div class="threat-card fade-in">
-                <h4><i class="fas fa-fish"></i> Фишинг и социальная инженерия</h4>
-                <p>Поддельные сайты и deepfake-видео, имитирующие голоса и лица руководителей</p>
+            <div class="threat-card">
+                <i class="fas fa-fish icon"></i>
+                <h3>Фишинг</h3>
+                <p>Мошеннические письма и сайты для кражи данных</p>
             </div>
-            <div class="threat-card fade-in">
-                <h4><i class="fas fa-network-wired"></i> DDoS-атаки</h4>
-                <p>Нарушения доступности сервисов из-за роста числа IoT-устройств и ботнетов</p>
+            <div class="threat-card">
+                <i class="fas fa-virus icon"></i>
+                <h3>Вредоносное ПО</h3>
+                <p>Вирусы, трояны и ransomware-атаки</p>
             </div>
-            <div class="threat-card fade-in">
-                <h4><i class="fas fa-key"></i> Утечки учетных данных</h4>
-                <p>Украденные логины и пароли как главный "ключ" ко взлому</p>
-            </div>
-            <div class="threat-card fade-in">
-                <h4><i class="fas fa-link"></i> Атаки через цепочку поставок</h4>
-                <p>Компрометация менее защищённого подрядчика для проникновения в крупную цель</p>
-            </div>
-            <div class="threat-card fade-in">
-                <h4><i class="fas fa-cloud"></i> Атаки на облачную инфраструктуру</h4>
-                <p>Неправильные конфигурации хранилищ и утечки облачных ключей</p>
-            </div>
-            <div class="threat-card fade-in">
-                <h4><i class="fas fa-microchip"></i> Атаки на IoT-системы</h4>
-                <p>Умные устройства как точка входа в корпоративную сеть</p>
+            <div class="threat-card">
+                <i class="fas fa-database icon"></i>
+                <h3>Утечки данных</h3>
+                <p>Несанкционированный доступ к конфиденциальной информации</p>
             </div>
         </div>
     </section>
 
-    <section id="methods">
-        <h2 class="section-title fade-in">Методы защиты и обеспечения безопасности</h2>
-        
-        <div class="content-block fade-in">
-            <h3><i class="fas fa-tools"></i> Технические методы</h3>
-            <div class="methods-grid">
-                <div class="method-card">
-                    <i class="fas fa-shield-virus"></i>
-                    <h4>Антивирусное ПО и фаерволы</h4>
-                    <p>Защита от вирусов, троянов, червей и несанкционированного доступа</p>
-                </div>
-                <div class="method-card">
-                    <i class="fas fa-radar"></i>
-                    <h4>Системы обнаружения вторжений</h4>
-                    <p>Мониторинг сетевого трафика и блокировка подозрительной активности</p>
-                </div>
-                <div class="method-card">
-                    <i class="fas fa-lock"></i>
-                    <h4>Криптография</h4>
-                    <p>Шифрование данных для защиты конфиденциальности информации</p>
-                </div>
+    <section id="protection">
+        <h2 class="section-title">Методы защиты</h2>
+        <div class="threats-grid">
+            <div class="threat-card">
+                <i class="fas fa-shield-virus icon"></i>
+                <h3>Антивирусы</h3>
+                <p>Защита от вредоносного программного обеспечения</p>
             </div>
-        </div>
-
-        <div class="content-block fade-in">
-            <h3><i class="fas fa-user-check"></i> Практические рекомендации</h3>
-            <ul>
-                <li><strong>Используйте разные пароли:</strong> Создавайте уникальные пароли для каждого сайта и регулярно их меняйте</li>
-                <li><strong>Осторожность с ссылками:</strong> Не переходите по подозрительным ссылкам и не открывайте вложения от неизвестных отправителей</li>
-                <li><strong>Избегайте ненужных загрузок:</strong> Ограничивайте количество скачиваний и используйте только проверенное ПО</li>
-            </ul>
-        </div>
-
-        <div class="content-block fade-in">
-            <h3><i class="fas fa-save"></i> Важность резервного копирования</h3>
-            <p>Регулярное создание резервных копий данных — это последняя линия защиты от потери информации в случае кибератаки, сбоя оборудования или человеческой ошибки.</p>
-            <ul>
-                <li>Используйте правило 3-2-1: 3 копии, на 2 разных носителя, 1 вне офиса</li>
-                <li>Проверяйте возможность восстановления данных</li>
-                <li>Автоматизируйте процесс копирования</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="trends">
-        <h2 class="section-title fade-in">Актуальные тенденции и будущее</h2>
-        
-        <div class="content-block fade-in">
-            <h3><i class="fas fa-robot"></i> Роль искусственного интеллекта</h3>
-            <p>ИИ способен обрабатывать большие объёмы данных, выявлять закономерности и аномалии, адаптироваться к возникающим угрозам в режиме реального времени.</p>
-            <p>В будущем ожидаются автономные системы кибербезопасности, которые смогут обнаруживать, реагировать и устранять угрозы без вмешательства человека.</p>
-        </div>
-
-        <div class="content-block fade-in">
-            <h3><i class="fas fa-layer-group"></i> Рост мультифакторных атак</h3>
-            <p>Злоумышленники смогут с помощью ИИ атаковать компанию сразу в нескольких направлениях, пытаясь проникнуть в инфраструктуру, рассылать фишинговые письма и воздействовать на сотрудников.</p>
-            <p>Особенно важным становится комплексный подход к безопасности, где технологические решения дополняются грамотной организационной политикой и обучением персонала.</p>
-        </div>
-
-        <div class="content-block fade-in">
-            <h3><i class="fas fa-globe"></i> Кибербезопасность — ключевой аспект</h3>
-            <p>Стремительный рост киберугроз и увеличение объёма цифровых данных требуют усиленной защиты компьютерных систем от кибератак и вредоносных программ.</p>
-            <p><strong>Главное правило:</strong> Безопасность — это процесс, а не конечное состояние. Необходимо постоянно обновлять знания, следить за новыми угрозами и адаптировать защитные меры.</p>
-            <a href="#contact" class="cta-button" style="margin-top: 2rem;">
-                <i class="fas fa-graduation-cap"></i>
-                Начать обучение
-            </a>
+            <div class="threat-card">
+                <i class="fas fa-lock icon"></i>
+                <h3>Шифрование</h3>
+                <p>Криптография для защиты конфиденциальности</p>
+            </div>
+            <div class="threat-card">
+                <i class="fas fa-save icon"></i>
+                <h3>Резервные копии</h3>
+                <p>Регулярное сохранение важных данных</p>
+            </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2 class="section-title fade-in">Контакты</h2>
-        <div class="content-block fade-in" style="text-align: center;">
-            <h3><i class="fas fa-envelope"></i> Свяжитесь с нами</h3>
-            <p>Ресурс о современных угрозах и методах защиты в цифровом мире.</p>
-            
-            <div class="contact-links">
-                <a href="mailto:nikitkarylit228@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope"></i>
-                    Email
-                </a>
-                <a href="https://vk.com/leonid_sever" target="_blank" class="contact-link">
-                    <i class="fab fa-vk"></i>
-                    VK
-                </a>
+        <h2 class="section-title">Контакты</h2>
+        <div class="threats-grid">
+            <div class="threat-card">
+                <i class="fas fa-envelope icon"></i>
+                <h3>Email</h3>
+                <p>nikitkarylit228@gmail.com</p>
+            </div>
+            <div class="threat-card">
+                <i class="fab fa-vk icon"></i>
+                <h3>VK</h3>
+                <p>vk.com/leonid_sever</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo">
-            <i class="fas fa-shield-alt"></i>
-            CyberShield
-        </div>
-        <p style="color: var(--text-gray); margin-top: 1rem;">© 2024 CyberShield. Все права защищены.</p>
+        <div class="logo">CyberShield</div>
+        <p>© 2024 Все права защищены</p>
     </footer>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
+        document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 15, 0.98)';
-            } else {
-                header.style.background = 'rgba(10, 10, 15, 0.95)';
-            }
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Parallax effect for shapes
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const shapes = document.querySelectorAll('.shape');
-            shapes.forEach((shape, index) => {
-                const speed = 0.5 + (index * 0.1);
-                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
 </body>
 </html>
-
-
-
