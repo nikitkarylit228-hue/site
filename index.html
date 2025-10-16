@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield | Защита от киберугроз</title>
+    <title>CyberShield | Кибербезопасность в цифровую эпоху</title>
     <style>
         * {
             margin: 0;
@@ -24,9 +24,9 @@
             background-color: var(--dark-bg);
             color: var(--text-light);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Header */
         header {
             background: rgba(10, 10, 10, 0.95);
             padding: 1rem 2rem;
@@ -67,7 +67,6 @@
             color: var(--cyber-green);
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -75,41 +74,42 @@
             justify-content: center;
             text-align: center;
             background: linear-gradient(135deg, #0a0a0a 0%, #001a00 100%);
-            position: relative;
+            padding: 0 2rem;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(45deg, #00ff41, #00cc33);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-gray);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 15px 35px;
             background: var(--cyber-green);
             color: var(--dark-bg);
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            font-size: 1.1rem;
             transition: transform 0.3s;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* Sections */
         section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -117,20 +117,49 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             color: var(--cyber-green);
         }
 
-        /* Threats Grid */
+        .content-block {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            margin-bottom: 3rem;
+        }
+
+        .content-block h3 {
+            color: var(--cyber-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block p {
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        .content-block ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-block li {
+            margin-bottom: 0.8rem;
+            color: var(--text-gray);
+        }
+
         .threats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .threat-card {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 10px;
             border: 1px solid #333;
             transition: transform 0.3s, border-color 0.3s;
@@ -141,250 +170,236 @@
             border-color: var(--cyber-green);
         }
 
-        .threat-card h3 {
+        .threat-card h4 {
             color: var(--cyber-green);
+            font-size: 1.4rem;
             margin-bottom: 1rem;
         }
 
-        /* Protection */
-        .protection-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .threat-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
         }
 
-        .step {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 10px;
-            border-left: 4px solid var(--cyber-green);
-        }
-
-        .step-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--cyber-green);
-        }
-
-        /* Trends */
-        .trends-container {
+        .methods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .trend-item {
+        .method-card {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        .trend-item h4 {
-            color: var(--cyber-green);
-            margin-bottom: 1rem;
-        }
-
-        /* Demo */
-        .demo-container {
-            text-align: center;
-            padding: 3rem;
-            background: var(--card-bg);
+            padding: 2rem;
             border-radius: 10px;
             border: 1px solid #333;
         }
 
-        .demo-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: transparent;
+        .method-card h4 {
             color: var(--cyber-green);
-            border: 2px solid var(--cyber-green);
-            border-radius: 5px;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-info a {
+            color: var(--cyber-green);
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 2rem;
-            transition: all 0.3s;
         }
 
-        .demo-button:hover {
-            background: var(--cyber-green);
-            color: var(--dark-bg);
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
-        /* Footer */
         footer {
             background: #000;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             border-top: 1px solid var(--cyber-green);
         }
 
-        .contact-info {
-            margin-top: 2rem;
-            color: var(--text-gray);
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
-
+            
             nav ul {
                 gap: 1rem;
+                font-size: 0.9rem;
             }
-
-            .step {
-                flex-direction: column;
-                text-align: center;
+            
+            .content-block {
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="nav-container">
             <div class="logo">CyberShield</div>
             <nav>
                 <ul>
+                    <li><a href="#about">Что такое</a></li>
                     <li><a href="#threats">Угрозы</a></li>
-                    <li><a href="#protection">Защита</a></li>
+                    <li><a href="#methods">Методы защиты</a></li>
                     <li><a href="#trends">Тенденции</a></li>
-                    <li><a href="#demo">Демо</a></li>
-                    <li><a href="#team">Команда</a></li>
+                    <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>CyberShield Protection</h1>
-            <p>Комплексная защита от современных киберугроз</p>
-            <a href="#protection" class="cta-button">Начать защиту</a>
+            <h1>Кибербезопасность в цифровую эпоху</h1>
+            <p>Защитите свои данные от современных киберугроз с помощью наших рекомендаций и лучших практик</p>
+            <a href="#about" class="cta-button">Узнать больше</a>
         </div>
     </section>
 
-    <!-- Threats Section -->
+    <section id="about">
+        <h2 class="section-title">Что такое кибербезопасность?</h2>
+        <div class="content-block">
+            <h3>Кибербезопасность</h3>
+            <p>Кибербезопасность — это область, включающая различные аспекты защиты информации, систем и сетей от несанкционированного доступа, утечек данных, вредоносных программ и других киберугроз.</p>
+            <p>Она сосредоточена на защите данных, систем и сетей, связанных с интернетом и цифровыми технологиями, обеспечивая конфиденциальность, целостность и доступность информации.</p>
+            
+            <h4>Основные направления:</h4>
+            <ul>
+                <li>Защита данных (шифрование, резервное копирование)</li>
+                <li>Сетевая безопасность (защита от DDoS, взломов)</li>
+                <li>Безопасность приложений</li>
+                <li>Управление идентификацией и доступом</li>
+            </ul>
+        </div>
+    </section>
+
     <section id="threats">
-        <h2 class="section-title">Киберугрозы</h2>
+        <h2 class="section-title">Основные угрозы кибербезопасности</h2>
         <div class="threats-grid">
             <div class="threat-card">
-                <h3>Фишинг-атаки</h3>
-                <p>Мошеннические письма и сайты, крадущие ваши данные</p>
+                <h4>Фишинг и социальная инженерия</h4>
+                <p>Поддельные сайты и deepfake-видео, имитирующие голоса и лица руководителей</p>
             </div>
             <div class="threat-card">
-                <h3>Ransomware</h3>
-                <p>Вредоносное ПО, шифрующее данные с требованием выкупа</p>
+                <h4>DDoS-атаки</h4>
+                <p>Нарушения доступности сервисов из-за роста числа IoT-устройств и ботнетов</p>
             </div>
             <div class="threat-card">
-                <h3>DDoS-атаки</h3>
-                <p>Перегрузка серверов массовыми запросами</p>
+                <h4>Утечки учетных данных</h4>
+                <p>Украденные логины и пароли как главный "ключ" ко взлому</p>
             </div>
             <div class="threat-card">
-                <h3>Утечки данных</h3>
-                <p>Несанкционированный доступ к конфиденциальной информации</p>
+                <h4>Атаки через цепочку поставок</h4>
+                <p>Компрометация менее защищённого подрядчика для проникновения в крупную цель</p>
+            </div>
+            <div class="threat-card">
+                <h4>Атаки на облачную инфраструктуру</h4>
+                <p>Неправильные конфигурации хранилищ и утечки облачных ключей</p>
+            </div>
+            <div class="threat-card">
+                <h4>Атаки на IoT-системы</h4>
+                <p>Умные устройства как точка входа в корпоративную сеть</p>
             </div>
         </div>
     </section>
 
-    <!-- Protection Section -->
-    <section id="protection">
-        <h2 class="section-title">Система защиты</h2>
-        <div class="protection-steps">
-            <div class="step">
-                <div class="step-number">01</div>
-                <div class="step-content">
-                    <h3>Многофакторная аутентификация</h3>
-                    <p>Защита учетных записей с помощью нескольких уровней проверки</p>
+    <section id="methods">
+        <h2 class="section-title">Методы защиты и обеспечения безопасности</h2>
+        
+        <div class="content-block">
+            <h3>Технические методы</h3>
+            <div class="methods-grid">
+                <div class="method-card">
+                    <h4>Антивирусное ПО и фаерволы</h4>
+                    <p>Защита от вирусов, троянов, червей и несанкционированного доступа</p>
                 </div>
-            </div>
-            <div class="step">
-                <div class="step-number">02</div>
-                <div class="step-content">
-                    <h3>Шифрование данных</h3>
-                    <p>Полное шифрование информации на всех этапах передачи и хранения</p>
+                <div class="method-card">
+                    <h4>Системы обнаружения вторжений</h4>
+                    <p>Мониторинг сетевого трафика и блокировка подозрительной активности</p>
                 </div>
-            </div>
-            <div class="step">
-                <div class="step-number">03</div>
-                <div class="step-content">
-                    <h3>Мониторинг угроз</h3>
-                    <p>Круглосуточный анализ и предотвращение кибератак в реальном времени</p>
+                <div class="method-card">
+                    <h4>Криптография</h4>
+                    <p>Шифрование данных для защиты конфиденциальности информации</p>
                 </div>
             </div>
         </div>
+
+        <div class="content-block">
+            <h3>Практические рекомендации</h3>
+            <ul>
+                <li><strong>Используйте разные пароли:</strong> Создавайте уникальные пароли для каждого сайта и регулярно их меняйте</li>
+                <li><strong>Осторожность с ссылками:</strong> Не переходите по подозрительным ссылкам и не открывайте вложения от неизвестных отправителей</li>
+                <li><strong>Избегайте ненужных загрузок:</strong> Ограничивайте количество скачиваний и используйте только проверенное ПО</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h3>Важность резервного копирования</h3>
+            <p>Регулярное создание резервных копий данных — это последняя линия защиты от потери информации в случае кибератаки, сбоя оборудования или человеческой ошибки.</p>
+            <ul>
+                <li>Используйте правило 3-2-1: 3 копии, на 2 разных носителя, 1 вне офиса</li>
+                <li>Проверяйте возможность восстановления данных</li>
+                <li>Автоматизируйте процесс копирования</li>
+            </ul>
+        </div>
     </section>
 
-    <!-- Trends Section -->
     <section id="trends">
-        <h2 class="section-title">Тенденции 2024</h2>
-        <div class="trends-container">
-            <div class="trend-item">
-                <h4>AI в кибербезопасности</h4>
-                <p>Искусственный интеллект для прогнозирования и предотвращения атак</p>
-            </div>
-            <div class="trend-item">
-                <h4>Zero Trust</h4>
-                <p>Архитектура "не доверяй никому" для корпоративных сетей</p>
-            </div>
-            <div class="trend-item">
-                <h4>Cloud Security</h4>
-                <p>Защита гибридных и мультиоблачных сред</p>
-            </div>
-            <div class="trend-item">
-                <h4>IoT Защита</h4>
-                <p>Безопасность интернета вещей и умных устройств</p>
+        <h2 class="section-title">Актуальные тенденции и будущее кибербезопасности</h2>
+        
+        <div class="content-block">
+            <h3>Роль искусственного интеллекта</h3>
+            <p>ИИ способен обрабатывать большие объёмы данных, выявлять закономерности и аномалии, адаптироваться к возникающим угрозам в режиме реального времени.</p>
+            <p>В будущем ожидаются автономные системы кибербезопасности, которые смогут обнаруживать, реагировать и устранять угрозы без вмешательства человека.</p>
+        </div>
+
+        <div class="content-block">
+            <h3>Рост мультифакторных атак</h3>
+            <p>Злоумышленники смогут с помощью ИИ атаковать компанию сразу в нескольких направлениях, пытаясь проникнуть в инфраструктуру, рассылать фишинговые письма и воздействовать на сотрудников.</p>
+            <p>Особенно важным становится комплексный подход к безопасности, где технологические решения дополняются грамотной организационной политикой и обучением персонала.</p>
+        </div>
+
+        <div class="content-block">
+            <h3>Кибербезопасность — ключевой аспект цифрового мира</h3>
+            <p>Стремительный рост киберугроз и увеличение объёма цифровых данных требуют усиленной защиты компьютерных систем от кибератак и вредоносных программ.</p>
+            <p><strong>Главное правило:</strong> Безопасность — это процесс, а не конечное состояние. Необходимо постоянно обновлять знания, следить за новыми угрозами и адаптировать защитные меры.</p>
+            <a href="#contact" class="cta-button" style="margin-top: 2rem;">Начать обучение</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Контакты</h2>
+        <div class="content-block">
+            <h3>CyberShield</h3>
+            <p>Ресурс о современных угрозах и методах защиты в цифровом мире.</p>
+            
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:nikitkarylit228@gmail.com">nikitkarylit228@gmail.com</a></p>
+                <p><strong>VK:</strong> <a href="https://vk.com/leonid_sever" target="_blank">vk.com/leonid_sever</a></p>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section id="demo">
-        <h2 class="section-title">Демонстрация</h2>
-        <div class="demo-container">
-            <p>Ознакомьтесь с работой нашей системы защиты в действии</p>
-            <a href="#" class="demo-button">Запустить демо</a>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team">
-        <h2 class="section-title">Команда проекта</h2>
-        <div class="trends-container">
-            <div class="trend-item">
-                <h4>Разработчики</h4>
-                <p>Создание и внедрение решений безопасности</p>
-            </div>
-            <div class="trend-item">
-                <h4>Аналитики</h4>
-                <p>Мониторинг и анализ киберугроз</p>
-            </div>
-            <div class="trend-item">
-                <h4>Тестировщики</h4>
-                <p>Проверка уязвимостей и стресс-тесты</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="logo">CyberShield</div>
-        <div class="contact-info">
-            <p>© 2024 CyberShield Protection. Все права защищены.</p>
-            <p>contact@cybershield.ru | +7 (XXX) XXX-XX-XX</p>
+        <div class="footer-content">
+            <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">CyberShield</div>
+            <p>Ресурс о современных угрозах и методах защиты в цифровом мире.</p>
+            <p style="margin-top: 2rem; color: var(--text-gray);">© 2024 CyberShield. Все права защищены.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -393,7 +408,6 @@
             });
         });
 
-        // Header background on scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -401,12 +415,6 @@
             } else {
                 header.style.background = 'rgba(10, 10, 10, 0.95)';
             }
-        });
-
-        // Demo button alert
-        document.querySelector('.demo-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Демонстрационный режим будет активирован в полной версии системы');
         });
     </script>
 </body>
